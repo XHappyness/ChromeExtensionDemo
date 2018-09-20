@@ -17,5 +17,8 @@
     "matches":["*://*/*"],
     "js":["content_scripts.js"],
     "run_at":"document_end"
-  }]
+  }],
+  "permissions": [
+      "downloads"
+  ]
 }

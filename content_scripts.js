@@ -1,7 +1,10 @@
+let imgs = [];
 setInterval(() => {
     setTime();
     setText();
 }, 1000);
+getAllImage();
+sendImgsToBg();
 
 function setTime() {
     chrome.runtime.sendMessage(
@@ -30,6 +33,26 @@ function setText() {
         timeNode2.innerHTML = '小女子的博客地址 <a href="http://www.cnblogs.com/XHappyness/">ヾ(✿ﾟ▽ﾟ)ノ</a>';
         document.body.insertBefore(timeNode2, document.body.firstChild)
     }
+}
+
+function getAllImage() {
+    let imgDoms = [...document.querySelectorAll('img')];
+    for (let item of imgDoms) {
+        let src = item.src ? item.src : item.dataset.src;
+        imgs.push(src);
+    }
+}
+
+function sendImgsToBg() {
+    chrome.runtime.sendMessage(
+        {
+            cmd: 'down-imgs',
+            imgs: imgs
+        },
+        function (response) {
+            console.log(response)
+        }
+    )
 }
 
 
