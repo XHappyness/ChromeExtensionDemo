@@ -1,10 +1,11 @@
-let imgs = [];
+var imgs = [];
 setInterval(() => {
     setTime();
     setText();
 }, 1000);
 getAllImage();
 sendImgsToBg();
+imgs = null;
 
 function setTime() {
     chrome.runtime.sendMessage(
