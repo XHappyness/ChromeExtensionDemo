@@ -1,11 +1,8 @@
-let imgs = [];
+setTime();
+setText();
 setInterval(() => {
     setTime();
-    setText();
 }, 1000);
-getAllImage();
-sendImgsToBg();
-
 function setTime() {
     chrome.runtime.sendMessage(
         { cmd: 'get-time' },
@@ -34,26 +31,3 @@ function setText() {
         document.body.insertBefore(timeNode2, document.body.firstChild)
     }
 }
-
-function getAllImage() {
-    let imgDoms = [...document.querySelectorAll('img')];
-    for (let item of imgDoms) {
-        let src = item.src ? item.src : item.dataset.src;
-        imgs.push(src);
-    }
-}
-
-function sendImgsToBg() {
-    chrome.runtime.sendMessage(
-        {
-            cmd: 'down-imgs',
-            imgs: imgs
-        },
-        function (response) {
-            console.log(response)
-        }
-    )
-}
-
-
-
