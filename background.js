@@ -8,5 +8,11 @@ function getTime() {
     return nowString;
 }
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.cmd == "get-time") {
+        sendResponse(getTime());
+        return;
+    }
+})
 
 
