@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@types/chrome": "0.0.61"
+  },
+  "scripts": {
+    "serve": "cd popup && vue-cli-service serve"
+  }
+}
