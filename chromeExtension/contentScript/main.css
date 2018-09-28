@@ -1,0 +1,14 @@
+[grabber-window="gs-popup-iframe"]{
+	position:fixed;
+	right:0px;
+	bottom:0px;
+	z-index:99999;/*预防出错*/
+	z-index:2147483647;
+	box-shadow: rgb(153, 153, 153) 0px 0px 15px;
+	border:20px solid #FFF;
+	border-top-left-radius:10px;
+	max-width:calc(100% - 40px);
+	max-height:calc(100% - 40px);
+	border-color:#FFF !important;
+	background-color:#FFF !important; 
+}
