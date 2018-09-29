@@ -1,4 +1,4 @@
-
+//import controlPopupIframe from "../contentScript/controlPopupIframe";
 function getTime() {
     var now = new Date();
     var nowString = now.getFullYear() + "-" +
@@ -28,4 +28,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         sendResponse('下载成功');
         return;
     }
+})
+
+chrome.browserAction.onClicked.addListener(() => {
+    chrome.tabs.executeScript({
+        code: 'console.log(123)'
+    });
+    /* chrome.runtime.sendMessage('浏览器按钮被点击', () => {
+        chrome.tabs.executeScript(null, {
+            file: '../contentScript/controlPopupIframe.js'
+        });
+    }) */
 })
